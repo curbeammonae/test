@@ -1,29 +1,26 @@
 const express = require("express"); //since i know im using express for this App, i am going to make sure we have access to express
 const app = express(); //storing express in 'app' variable. 'app' can just use all methods that come with express
-const cors = require('cors')
+const cors = require("cors");
 const PORT = 8000;
 
 /*first thing we do is setup server to hear request and respond*/
 
-app.use(cors())
+app.use(cors());
 
 const bikiniBottomObject = {
-  'id1': {
-    'bName': "Doodle Bob",
-    'bImage':
+  "Doodle Bob": {
+    bImage:
       "https://i.kym-cdn.com/entries/icons/original/000/020/981/CvllgCSUIAAvycY.jpg",
-    'quote': "Meyohimeyoi!",
+    quote: "Meyohimeyoi!",
   },
-  'id2': {
-    'bName': "Squilliam Fancyson",
-    'bImage':
+  "Squilliam Fancyson": {
+    bImage:
       "https://static.wikia.nocookie.net/spongebob/images/9/91/Band_Geeks_012.png/revision/latest?cb=20191124031401",
-    'quote':
+    quote:
       "Squidward Tentacles has the fanciest restaurant in Bikini Bottom, and he does not suck eggs",
   },
-  'id3': {
-    'bName': "Bubble Bass",
-    'bImage':
+  "Bubble Bass": {
+    bImage:
       "https://i.kym-cdn.com/entries/icons/mobile/000/026/636/Screen_Shot_2018-08-20_at_7.12.25_PM.jpg",
     quote: " This is pretty good. Only one thing... you forgot THE PICKLES!",
   },
@@ -46,15 +43,15 @@ app.get("/api/:ourfish", (request, response) => {
 
   const idurl = request.params.ourfish.toLowerCase();
 
-  console.log(idurl)
+  console.log(idurl);
   //if the object 'rappers' has a proprtery of 'rappersName' (what we get from the url)
   console.log(bikiniBottomObject[idurl]);
- 
+
   if (bikiniBottomObject[idurl]) {
     //we respond with that 'rappersName' listed in the 'rappers' object listed above
     response.json(bikiniBottomObject[idurl]);
   } else {
-    response.json('no data');
+    response.json("no data");
   }
 });
 //telling the app to listen for our app.get request on our PORT
