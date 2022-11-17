@@ -1,56 +1,87 @@
-const express = require("express"); //since i know im using express for this App, i am going to make sure we have access to express
-const app = express(); //storing express in 'app' variable. 'app' can just use all methods that come with express
-const cors = require("cors");
-const PORT = 8000;
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const PORT = 8000
 
-/*first thing we do is setup server to hear request and respond*/
+app.use(cors())
 
-app.use(cors());
+let rappers = {
+    'test123' : {
+        'birthName': "this is a test babes",
+    'birthImage':
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCBWY2T9VHc8igfgQYLD8VU9RdqXuU87d3A&usqp=CAU",
+    'birthQuote': "hee hee",
+   
+  },
+  's3h0' : {
+    'birthName': "Squilliam Fancyson",
+  'birthImage':
+    "https://static.wikia.nocookie.net/spongebob/images/9/91/Band_Geeks_012.png/revision/latest?cb=20191124031401",
+  'birthQuote': "Squidward Tentacles has the fanciest restaurant in Bikini Bottom, and he does not suck eggs",
+ 
+ //faith
+ 
+},
+'s6p91' : {
+  'birthName': "Mr.Krabs",
+'birthImage':
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9c0yJd2-ynTKwp4DaDPCYFNKFy7flmq9jZA&usqp=CAU",
+'birthQuote': "The money is always right!",
+//rach
+},
+'q6y3k' : {
+  'birthName': 
+  "Spongebob",
+ 'birthImage':
+   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8VAO1DBAt4GhyWdHUFlw5jyQsjD0wTxDDA&usqp=CAU",
+ 'birthQuote': "I'm ugly and I'm proud!",
+//stef
+},
+'r43zr' : {'birthName': "Squidward",
+ 'birthImage':
+   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW9kOWGhjiLHSJJvlPqhAwjOGL26ulHsOj_w&usqp=CAU",
+ 'birthQuote': "I hate all of you.",
+//ale
+},
+'x60k' : {'birthName': "Gary",
+ 'birthImage':
+   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF8PqgzNYgpjPNacoDSGdXjZ5Ia3PMq9Iutw&usqp=CAU",
+ 'birthQuote': "meow",
+//kevin
+},
+ 't79s2' : {'birthName': "Plankton",
+ 'birthImage': "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlLetVQsOgXXXGzupnCJNt4VCUvd5NObFWzQ&usqp=CAU",
+  'birthQuote': "“I will destroy all of you!",
+//jade
+},
 
-const bikiniBottomObject = [
-    {
-        test123 : {birthName: "this is a test babes",
-        birthImage:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCBWY2T9VHc8igfgQYLD8VU9RdqXuU87d3A&usqp=CAU",
-        birthQuote: "hee hee",
-       
-      },
+'raj6' : {
+  'birthName': "Larry the Lobster",
+ 'birthImage': "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR33ulIKTTYUYiUcCmhAa07ikoVviWt35Vn8Q&usqp=CAU",
+ 'birthQuote': "You guys wanna go lift some weights?",
+//jasmin
+},
+'u1zi4' : {
+  'birthName': "Mrs.Puff",
+ 'birthImage': "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVW4aVnHYgvqUmAcd7rFrhkYZy6zslBkAGgQ&usqp=CAU",
+ 'birthQuote': "You need six hundred to pass, you got six.",
+//jeemo
+},
 }
-];
-//app.get is the request when when users go to main url(it's always '/'), .get is a method that comes with express
-//serving up HTML(located in notes)
-//you will always see request, response
-//when app.get hears the network request, it fires what's inside
-app.get("/", (request, response) => {
-  //our response is going to be to send file, our main index.html file
-  //__dirname tells our server where to look to get index.html file
-  response.sendFile(__dirname + "/index.html");
-});
-//serving up JSON(in notes)
-//since they are requesting API, we respond with JSON (response.json)
-//after the slash put':' for query parameter
-app.get("/api/:ourfish", (request, response) => {
-  //whenever a request comes in, if their is rapperName after the slash. i can grab it with request.params,rapperName
-  //store in variable
-  response.json(bikiniBottomObject);
-  response.json(bikiniBottomObject);
 
-/*
-  const idurl = request.params.ourfish.toLowerCase();
+app.get('/', (request, response) => {
+    response.sendFile(__dirname + '/index.html')
+})
 
-  console.log(idurl);
-  //if the object 'rappers' has a proprtery of 'rappersName' (what we get from the url)
-  console.log(bikiniBottomObject[idurl]);
+app.get('/api/:name', (request, response) => {
+    const rapperName = request.params.name.toLowerCase()
+    if(rappers[rapperName]){
+        response.json(rappers[rapperName])
+    }else{
+        response.json('OOPS')
+    }
+})
 
-  if (bikiniBottomObject[idurl]) {
-    //we respond with that 'rappersName' listed in the 'rappers' object listed above
-    response.json(bikiniBottomObject[idurl]);
-  } else {
-    response.json("no data");
-  }*/
-});
-//telling the app to listen for our app.get request on our PORT
-//if it hears the rquest, it will display on our PORT
 app.listen(process.env.PORT || PORT, () => {
-  console.log(`the server is running on ${PORT}`);
-});
+    console.log(`Server running on port ${PORT}`)
+})
