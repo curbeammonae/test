@@ -7,7 +7,8 @@ const PORT = 8000;
 
 app.use(cors());
 
-const bikiniBottomObject = {
+const bikiniBottomObject = [
+    {
   "Doodle Bob": {
     bImage:
       "https://i.kym-cdn.com/entries/icons/original/000/020/981/CvllgCSUIAAvycY.jpg",
@@ -24,7 +25,8 @@ const bikiniBottomObject = {
       "https://i.kym-cdn.com/entries/icons/mobile/000/026/636/Screen_Shot_2018-08-20_at_7.12.25_PM.jpg",
     quote: " This is pretty good. Only one thing... you forgot THE PICKLES!",
   },
-};
+}
+];
 //app.get is the request when when users go to main url(it's always '/'), .get is a method that comes with express
 //serving up HTML(located in notes)
 //you will always see request, response
@@ -40,7 +42,10 @@ app.get("/", (request, response) => {
 app.get("/api/:ourfish", (request, response) => {
   //whenever a request comes in, if their is rapperName after the slash. i can grab it with request.params,rapperName
   //store in variable
+  response.json(bikiniBottomObject);
+  response.json(bikiniBottomObject);
 
+/*
   const idurl = request.params.ourfish.toLowerCase();
 
   console.log(idurl);
@@ -52,7 +57,7 @@ app.get("/api/:ourfish", (request, response) => {
     response.json(bikiniBottomObject[idurl]);
   } else {
     response.json("no data");
-  }
+  }*/
 });
 //telling the app to listen for our app.get request on our PORT
 //if it hears the rquest, it will display on our PORT
