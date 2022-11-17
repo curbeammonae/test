@@ -9,22 +9,12 @@ app.use(cors());
 
 const bikiniBottomObject = [
     {
-  "Doodle Bob": {
-    bImage:
-      "https://i.kym-cdn.com/entries/icons/original/000/020/981/CvllgCSUIAAvycY.jpg",
-    quote: "Meyohimeyoi!",
-  },
-  "Squilliam Fancyson": {
-    bImage:
-      "https://static.wikia.nocookie.net/spongebob/images/9/91/Band_Geeks_012.png/revision/latest?cb=20191124031401",
-    quote:
-      "Squidward Tentacles has the fanciest restaurant in Bikini Bottom, and he does not suck eggs",
-  },
-  "Bubble Bass": {
-    bImage:
-      "https://i.kym-cdn.com/entries/icons/mobile/000/026/636/Screen_Shot_2018-08-20_at_7.12.25_PM.jpg",
-    quote: " This is pretty good. Only one thing... you forgot THE PICKLES!",
-  },
+        test123 : {birthName: "this is a test babes",
+        birthImage:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCBWY2T9VHc8igfgQYLD8VU9RdqXuU87d3A&usqp=CAU",
+        birthQuote: "hee hee",
+       
+      },
 }
 ];
 //app.get is the request when when users go to main url(it's always '/'), .get is a method that comes with express
