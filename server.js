@@ -16,7 +16,7 @@ let rappers = {
   's3h0' : {
     'birthName': "Squilliam Fancyson",
   'birthImage':
-    "https://static.wikia.nocookie.net/spongebob/images/9/91/Band_Geeks_012.png/revision/latest?cb=20191124031401",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkwacNnuAsBTwQ5_7_vZj7mMTU7mNcaGiVdg&usqp=CAU",
   'birthQuote': "Squidward Tentacles has the fanciest restaurant in Bikini Bottom, and he does not suck eggs",
  
  //faith
