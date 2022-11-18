@@ -9,7 +9,7 @@ let rappers = {
     'test123' : {
         'birthName': "this is a test babes",
     'birthImage':
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCBWY2T9VHc8igfgQYLD8VU9RdqXuU87d3A&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfiKIuL_fqSeVjEanSZzUhArwpFOWfKz8eHw&usqp=CAU",
     'birthQuote': "hee hee",
    
   },
