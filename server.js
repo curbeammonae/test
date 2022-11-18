@@ -67,6 +67,12 @@ let rappers = {
  'birthQuote': "You need six hundred to pass, you got six.",
 //jeemo
 },
+'p9a37' : {'birthName': "Patrick",
+  'birthImage':
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLPj2LsKuBQHGIZdKGdVPs3BOm_dM8R7eqWg&usqp=CAU",
+  'birthQuote': "I wumbo, you wumbo, he she we wumbo",
+}
+
 }
 
 app.get('/', (request, response) => {
